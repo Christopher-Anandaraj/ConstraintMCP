@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "constraint-mcp": {
+      "command": "constraint-mcp",
+      "args": [],
+      "env": {
+        "CONSTRAINT_MCP_SPEC": "./SPEC.md"
+      }
+    }
+  }
+}
