@@ -13,8 +13,8 @@
 CLAUDE.md and system prompts are soft rules. They work by asking the model nicely.
 
 In practice:
-- Models follow fewer than 30% of prompt-level instructions in multi-step agent scenarios
-- Claude Code had a [CVE](https://github.com/anthropics/claude-code/security) where deny rules in CLAUDE.md were silently bypassed under specific prompt injection conditions
+- The best models follow [fewer than 30% of prompt-level instructions](https://arxiv.org/abs/2505.16944) in multi-step agent scenarios (AgentIF benchmark, NeurIPS 2025)
+- Claude Code had a [documented security bypass](https://adversa.ai/blog/claude-code-security-bypass-deny-rules-disabled/) where deny rules in CLAUDE.md were silently skipped when commands exceeded an internal limit (patched in v2.1.90, April 2026)
 - Every CLAUDE.md is one context-window flush away from being forgotten
 
 The gap is architectural: rules live in prose, enforcement lives nowhere.
