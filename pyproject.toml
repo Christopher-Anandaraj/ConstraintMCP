@@ -7,7 +7,7 @@ name = "constraint-mcp"
 version = "0.1.0"
 description = "Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken."
 readme = "README.md"
-license = { text = "MIT" }
+license = { text = "Apache-2.0" }
 requires-python = ">=3.10"
 dependencies = [
     "fastmcp>=2.0.0",

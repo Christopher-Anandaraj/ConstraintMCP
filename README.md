@@ -142,4 +142,4 @@ You'll see all three constraint types fire and be blocked in real time.
 
 ## License
 
-MIT
+Apache 2.0
