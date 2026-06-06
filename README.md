@@ -2,6 +2,8 @@
 
 > CLAUDE.md rules are wishes. constraint-mcp is the law.
 
+![constraint-mcp demo](demo.gif)
+
 **Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.**
 
 ---

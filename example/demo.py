@@ -36,7 +36,7 @@ def _header(scenario: str, title: str) -> None:
     print(f"{DIM}{'─' * 56}{RESET}")
     print(f"  {CYAN}{BOLD}{scenario}{RESET}  {title}")
     print(f"{DIM}{'─' * 56}{RESET}")
-    time.sleep(0.3)
+    time.sleep(0.6)
 
 
 def _show(filepath: str, content: str, config) -> None:
@@ -45,7 +45,7 @@ def _show(filepath: str, content: str, config) -> None:
     for line in content.strip().splitlines():
         print(f"  {DIM}{line}{RESET}")
     print()
-    time.sleep(0.4)
+    time.sleep(0.8)
 
     violations = run_all_checks(filepath, content, config)
 
@@ -59,7 +59,7 @@ def _show(filepath: str, content: str, config) -> None:
     else:
         print(f"  {GREEN}{BOLD}✓ APPROVED{RESET}  {BOLD}{filepath}{RESET}")
 
-    time.sleep(0.5)
+    time.sleep(1.2)
 
 
 def main() -> None:
