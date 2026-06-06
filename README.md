@@ -17,9 +17,9 @@ In practice:
 - Claude Code had a [documented security bypass](https://adversa.ai/blog/claude-code-security-bypass-deny-rules-disabled/) where deny rules in CLAUDE.md were silently skipped when commands exceeded an internal limit (patched in v2.1.90, April 2026)
 - Every CLAUDE.md is one context-window flush away from being forgotten
 
-The gap is architectural: rules live in prose, enforcement lives nowhere.
+The gap is architectural: rules live in prose and enforcement lives nowhere.
 
-**constraint-mcp closes that gap.** Rules are enforced at the tool level, via AST analysis, *before* writes happen. The model cannot write a file without calling `check_write()` — and `check_write()` runs the actual code check, not a vibe check.
+**constraint-mcp closes that gap.** Rules are enforced at the tool level, via AST analysis, *before* writes even happen. The model cannot write a file without calling `check_write()` — and `check_write()` runs the actual code check, not a vibe check.
 
 ---
 
@@ -49,7 +49,7 @@ written   into context window
           (write blocked)
 ```
 
-The violation message is formatted to be unambiguous in an LLM context: it names the exact rule, the line, and the required fix.
+The violation message is formatted to be unambiguous in an LLM context: it names the exact rule, the line, and the required fix so that the model knows exactly why the tool was blocked.
 
 ---
 
