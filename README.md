@@ -8,6 +8,12 @@
 
 **Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.**
 
+### AST semantic enforcement — not text matching
+
+![semantic demo](demo_semantic.gif)
+
+Comments, strings, and docstrings that mention a banned import are approved. Only real Python import statements — including aliases and imports nested inside functions — are blocked. This is what tree-sitter AST parsing buys over regex.
+
 ---
 
 ## The Problem
