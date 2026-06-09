@@ -4,6 +4,8 @@
 
 ![constraint-mcp demo](demo.gif)
 
+[![Listed on ClaudePluginHub](https://www.claudepluginhub.com/badge/christopher-anandaraj-constraint-mcp)](https://www.claudepluginhub.com/plugins/christopher-anandaraj-constraint-mcp?ref=badge)
+
 **Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.**
 
 ---
