@@ -133,12 +133,54 @@ Place `SPEC.md` in your repo root (or set `CONSTRAINT_MCP_SPEC` env var to a cus
 
 ---
 
+## Semantic Constraints (meaning-level enforcement)
+
+AST rules catch *structure* — imports, filepaths, layer boundaries. They can't catch *meaning*: "this file in `src/auth/` is actually doing database work," or "this change quietly turned a utility into something else." Semantic constraints close that gap using embedding similarity (local, CPU-only, no API calls).
+
+![semantic enforcement demo](demo_semantic_layer.gif)
+
+```markdown
+## Semantic Constraints
+
+### Domain Coherence
+- `src/auth/` — must match domain: "authentication, JWT tokens, sessions, login, credentials"
+  threshold: 0.45
+
+### Semantic Coupling Bans
+- `src/api/` — must not contain: "SQL queries, database connections, ORM, cursor, raw query"
+  threshold: 0.58
+
+### Semantic Drift
+- `src/core/` — baseline: auto, max-drift: 0.30
+- `src/core/auth.py` — baseline: locked, max-drift: 0.15
+```
+
+- **Domain Coherence** — code in the path must be *similar enough* to the domain (similarity ≥ threshold).
+- **Semantic Coupling Bans** — code in the path must *not resemble* a forbidden concern (similarity ≤ threshold).
+- **Semantic Drift** — a file's meaning must not move too far from its baseline. `auto` tracks the file's evolution; `locked` freezes the baseline at the first write.
+
+**Safe by default.** Semantic violations are *warnings* (write approved, `semantic_warnings` attached) until you set `CONSTRAINT_MCP_SEMANTIC_STRICT=true`, which makes them block like AST rules. This lets you observe and tune thresholds before enforcing — embedding similarity is probabilistic, and thresholds are project-specific.
+
+On first use, the embedding model (`BAAI/bge-small-en-v1.5`, ~22MB, Apache 2.0) downloads to `~/.cache/fastembed/`. No GPU, no API key, fully offline after that.
+
+### Semantic env vars
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `CONSTRAINT_MCP_SEMANTIC_STRICT` | `false` | `true` = semantic violations block writes |
+| `CONSTRAINT_MCP_SEMANTIC_DISABLED` | `false` | `true` = skip the semantic layer entirely |
+| `CONSTRAINT_MCP_SEMANTIC_MODEL` | `BAAI/bge-small-en-v1.5` | fastembed model id |
+| `CONSTRAINT_MCP_BASELINE_DB` | `.constraint-mcp/baselines.db` | drift baseline store path |
+
+---
+
 ## MCP Tools
 
 | Tool | Description |
 |------|-------------|
-| `check_write(filepath, content)` | Main enforcement gate. Call before every file write. Returns `approved` or a detailed `violation` report. |
-| `get_constraints()` | Returns all active rules as structured JSON. Call at session start to load rules into context. |
+| `check_write(filepath, content)` | Main enforcement gate. Call before every file write. Returns `approved` or a detailed `violation` report (structural or semantic). |
+| `get_constraints()` | Returns all active AST rules as structured JSON. Call at session start to load rules into context. |
+| `get_semantic_status()` | Returns active semantic rules, files with established drift baselines, and strict-mode state. |
 | `report_violation(rule, filepath, line)` | Appends a violation entry to `constraint_violations.log`. |
 
 ---
@@ -152,6 +194,7 @@ Place `SPEC.md` in your repo root (or set `CONSTRAINT_MCP_SPEC` env var to a cus
 | Import bans | No | Config-based | AST-verified |
 | Protected files | No | Yes | Yes |
 | Architecture layer rules | No | No | Yes |
+| Semantic / meaning-level rules | No | No | **Yes** |
 | Hot-reload on rule change | N/A | No | Yes (watchdog) |
 | Violation log | No | No | Yes |
 | Setup complexity | Minimal | Low | Low |

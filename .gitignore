@@ -222,3 +222,6 @@ __marimo__/
 
 # Project-local AI instructions
 CLAUDE.md
+
+# constraint-mcp runtime (semantic drift baselines)
+.constraint-mcp/
