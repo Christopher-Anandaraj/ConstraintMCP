@@ -1,4 +1,5 @@
-Output demo.gif
+# Run from the repo root: vhs artifacts/demo.tape
+Output artifacts/demo.gif
 
 Set FontSize 15
 Set Width 900

@@ -1,4 +1,5 @@
-Output demo_semantic_layer.gif
+# Run from the repo root: vhs artifacts/demo_semantic_layer.tape
+Output artifacts/demo_semantic_layer.gif
 
 Set FontSize 14
 Set Width 1000

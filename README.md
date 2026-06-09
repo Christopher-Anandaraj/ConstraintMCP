@@ -4,7 +4,7 @@
 
 > CLAUDE.md rules are wishes. constraint-mcp is the law.
 
-![constraint-mcp demo](demo.gif)
+![constraint-mcp demo](artifacts/demo.gif)
 
 **Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.**
 
@@ -131,7 +131,7 @@ Place `SPEC.md` in your repo root (or set `CONSTRAINT_MCP_SPEC` env var to a cus
 
 AST rules catch *structure* — imports, filepaths, layer boundaries. They can't catch *meaning*: "this file in `src/auth/` is actually doing database work," or "this change quietly turned a utility into something else." Semantic constraints close that gap using embedding similarity (local, CPU-only, no API calls).
 
-![semantic enforcement demo](demo_semantic_layer.gif)
+![semantic enforcement demo](artifacts/demo_semantic_layer.gif)
 
 ```markdown
 ## Semantic Constraints
