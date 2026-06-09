@@ -80,6 +80,27 @@ claude
 
 ---
 
+## Install as a Claude Code plugin
+
+Prefer one command instead of hand-editing `.mcp.json`? Install straight from the marketplace:
+
+```bash
+# In any Claude Code session:
+/plugin marketplace add Christopher-Anandaraj/ConstraintMCP
+/plugin install constraint-mcp@constraint-mcp
+```
+
+The plugin ships the MCP server config for you. You still need the `constraint-mcp`
+command on your `PATH` (it runs the actual checks), so install the package once:
+
+```bash
+pip install constraint-mcp
+```
+
+Then drop a `SPEC.md` in your project root and restart Claude Code.
+
+---
+
 ## SPEC.md Format
 
 ```markdown
