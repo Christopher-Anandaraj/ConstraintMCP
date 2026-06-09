@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "constraint-mcp",
+  "displayName": "constraint-mcp",
+  "version": "0.1.0",
+  "description": "Enforces architectural constraints on AI coding agents in real time, at the code level. AST-verified import bans, protected files, and cross-layer architecture rules — checked before writes happen, not after.",
+  "author": {
+    "name": "Christopher-Anandaraj",
+    "email": "js01.christopher@gmail.com"
+  },
+  "homepage": "https://github.com/Christopher-Anandaraj/ConstraintMCP",
+  "repository": "https://github.com/Christopher-Anandaraj/ConstraintMCP",
+  "license": "Apache-2.0",
+  "keywords": [
+    "mcp",
+    "constraints",
+    "ast",
+    "architecture",
+    "enforcement",
+    "guardrails"
+  ],
+  "mcpServers": "./.mcp.json"
+}

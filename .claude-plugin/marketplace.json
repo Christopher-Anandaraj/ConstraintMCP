@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "constraint-mcp",
+  "owner": {
+    "name": "Christopher-Anandaraj",
+    "email": "js01.christopher@gmail.com"
+  },
+  "description": "Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.",
+  "plugins": [
+    {
+      "name": "constraint-mcp",
+      "source": "./",
+      "description": "Enforces architectural constraints on AI coding agents in real time, at the code level. AST-verified import bans, protected files, and cross-layer architecture rules — checked before writes happen, not after.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Christopher-Anandaraj",
+        "email": "js01.christopher@gmail.com"
+      },
+      "homepage": "https://github.com/Christopher-Anandaraj/ConstraintMCP",
+      "repository": "https://github.com/Christopher-Anandaraj/ConstraintMCP",
+      "license": "Apache-2.0",
+      "category": "developer-tools",
+      "keywords": [
+        "mcp",
+        "constraints",
+        "ast",
+        "architecture",
+        "enforcement",
+        "linting",
+        "guardrails"
+      ],
+      "tags": [
+        "mcp",
+        "guardrails",
+        "architecture",
+        "ast"
+      ]
+    }
+  ]
+}
