@@ -11,7 +11,7 @@
       "name": "constraint-mcp",
       "source": "./",
       "description": "Enforces architectural constraints on AI coding agents in real time, at the code level. AST-verified import bans, protected files, and cross-layer architecture rules — checked before writes happen, not after.",
-      "version": "0.1.0",
+      "version": "2.0.0",
       "author": {
         "name": "Christopher-Anandaraj",
         "email": "js01.christopher@gmail.com"

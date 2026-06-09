@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "constraint-mcp"
-version = "0.1.0"
+version = "2.0.0"
 description = "Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken."
 readme = "README.md"
 license = { text = "Apache-2.0" }

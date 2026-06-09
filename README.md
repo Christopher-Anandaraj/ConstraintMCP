@@ -4,9 +4,11 @@
 
 > CLAUDE.md rules are wishes. constraint-mcp is the law.
 
-![constraint-mcp demo](artifacts/demo.gif)
+![constraint-mcp semantic enforcement demo](artifacts/demo_v2.gif)
 
 **Hard enforcement for AI coding agents. SPEC.md rules that actually can't be broken.**
+
+Same task, same model. With just a CLAUDE.md soft rule, the agent writes SQL into your API layer and reverts auth into a billing service — and nothing stops it. With constraint-mcp, both are **blocked at the gate**, with the exact rule and similarity score, and the agent self-corrects.
 
 ---
 
@@ -52,6 +54,10 @@ written   into context window
 ```
 
 The violation message is formatted to be unambiguous in an LLM context: it names the exact rule, the line, and the required fix so that the model knows exactly why the tool was blocked.
+
+Structural (AST) enforcement in action — banned imports, protected files, and cross-layer rules:
+
+![constraint-mcp structural demo](artifacts/demo.gif)
 
 ---
 
